@@ -46,7 +46,7 @@
 
                       <div class="row">
                           <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="file">Date of Birth</label>
+                              <label class="col-md-2 control-lable" for="file">DOB</label>
                               <div class="col-md-7">
                                   <input type="text" id="datepicker" ng-model="ctrl.user.dateofbirth" name="dateofbirth" class="form-control input-sm" required placeholder="Enter the date of birth" />
                                   <div class="has-error" ng-show="myForm.$dirty">
