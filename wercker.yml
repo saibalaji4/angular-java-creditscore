@@ -18,6 +18,13 @@ build:
         name: Maven build for WebLogic deployment
         code: mvn clean package -Pweblogic
 
+  after-steps:
+    - install-packages:
+        packages: ruby
+    - pasonatquila/pretty-slack-notify@0.3.6:
+        webhook_url: $SLACK_URL
+        channel: $SLACK_CHANNEL  
+
 deploy-to-weblogic:
   box:
       id: spotify/alpine
@@ -31,4 +38,11 @@ deploy-to-weblogic:
     - script:
         name: Print application URL
         code: echo http://${WLS_IP}:30305/${WERCKER_APPLICATION_OWNER_NAME}
+
+  after-steps:
+    - install-packages:
+        packages: ruby
+    - pasonatquila/pretty-slack-notify@0.3.6:
+        webhook_url: $SLACK_URL
+        channel: $SLACK_CHANNEL  
               
