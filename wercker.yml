@@ -27,7 +27,7 @@ deploy-to-weblogic:
     - script:
         name: using curl to deploy through REST management interface
         code: |
-              curl -v --user $WLS_ADMIN:$WLS_PASSWORD -H "X-Requested-By:Wercker" -H "Accept:application/json" -H "Content-Type:multipart/form-data" -F "model={name: '${WERCKER_APPLICATION_OWNER_NAME}-webapp', targets: [ 'cluster-1' ]}" -F deployment=@"${WERCKER_ROOT}/target/creditscore-1.0.0.war" http://${WLS_IP}:${WLS_ADMIN_PORT}/management/wls/latest/deployments/application
+              curl -v --user $WLS_ADMIN:$WLS_PASSWORD -H "X-Requested-By:Wercker" -H "Accept:application/json" -H "Content-Type:multipart/form-data" -F "model={name: 'weblogic-devops-webapp', targets: [ 'cluster-1' ]}" -F deployment=@"${WERCKER_ROOT}/target/creditscore-1.0.0.war" http://${WLS_IP}:${WLS_ADMIN_PORT}/management/wls/latest/deployments/application
     - script:
         name: Print application URL
         code: echo http://${WLS_IP}:30305/${WERCKER_APPLICATION_OWNER_NAME}
